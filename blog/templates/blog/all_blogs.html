@@ -1,0 +1,21 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+<h2>creator has writter {{ blogs.count }} blog{{ blogs.count|pluralize }}</h2>
+
+
+
+    {% for blog in blogs %}
+
+
+    <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+    <h5>{{ blog.date_of_time }}</h5>
+    <p>{{ blog.descrpition|truncatechars:75 }}</p>
+
+
+
+    {% endfor %}
+
+{% endblock %}
+
